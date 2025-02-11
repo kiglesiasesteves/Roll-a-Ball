@@ -76,6 +76,10 @@ Código para la Gestión de Vida:
 
 (Código correspondiente a la disminución de vida del jugador)
 
+## Estados 
+Para definir estados de ciertos elementos hemos usado State que nos permiet cambiar el estado 
+
+
 ## Cambio de Escenas (Niveles)
 
 Para hacer el juego más interesante, hemos implementado múltiples niveles. Una vez configuradas las escenas en Unity (File > Build Settings > Scenes in Build), podemos programar la transición entre niveles usando SceneManager.LoadScene().
