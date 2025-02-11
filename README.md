@@ -1,93 +1,101 @@
-# Roll-a-Ball
+Roll-a-Ball: Funcionalidades Avanzadas
 
-En este proyecto analizaremos como añadir ciertas funcionalidades extra a nuestro juego del roll-a-ball. Para saber sobre elementos básicos como cámaras existe un repositorio anterior en el que hablamos del movimiento del jugador y de las cámaras. 
+En este proyecto analizaremos cómo añadir funcionalidades extra a nuestro juego Roll-a-Ball. Si buscas información sobre los elementos básicos, como el movimiento del jugador o las cámaras, puedes consultar un repositorio anterior donde abordamos esos temas en detalle.
 
-## PlayGround
+PlayGround
 
-El PlayGround es uno de los elementos más importantes del juego, es lo que va a ver el jugador y donde se va a desarrollar el juego. El playGround puede parecer que solo se basa en la creación de elementos 3D para interactuar con ellos pero es mucho más que eso. 
+El PlayGround es uno de los elementos más importantes del juego, ya que define el entorno en el que el jugador se moverá e interactuará. Aunque pueda parecer que se trata solo de la creación de elementos 3D, en realidad es mucho más que eso. A continuación, exploraremos algunas de las mejoras que hemos implementado en el PlayGround para hacer el juego más dinámico y desafiante.
 
-### Rampa con boost
+Rampa con Boost
 
-Una cosa que podemos hacer con nuestro playground es añadir una especie de potenciadores para nuestro jugador en el propio playground (otra opción sería añadirlos en un pickup como pasa en juegos de MarioBros).
-Para eso hablaremos de la rampa que nos ofrece un aumento de velocidad cuando pasamos por ella. Veamos el ejemplo. 
+Una forma de enriquecer la experiencia de juego es añadiendo potenciadores en el escenario, como ocurre en algunos títulos de Mario Bros. En este caso, hemos implementado una rampa que otorga un aumento de velocidad al jugador al subirla.
 
-![rampaBoost](https://github.com/user-attachments/assets/7572f463-b012-43b1-825f-af94c3bf9390)
+![rampaBoost](https://github.com/user-attachments/assets/f5f33d4d-87c5-4151-92b4-899860748f98)
 
-Esta rampa tiene un Script que nos permite realizar este proceso. Este es el método exacto:
-´´´
+
+Código de la Rampa con Boost:
+
 private void OnTriggerEnter(Collider other)
+{
+    // Comprobar si el objeto que entra en el trigger es el jugador
+    if (other.CompareTag("Player"))
     {
-        // Comprobar si el objeto que entra en el trigger es el jugador
-        if (other.CompareTag("Player"))
-        {
-            // Aplicar el aumento de velocidad
-            other.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, speedBoost);
-        }
+        // Aplicar el aumento de velocidad
+        other.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, speedBoost);
     }
-    ´´´
-### Cilindros empujones
+}
 
-Otro extra que he añadido en el playground ha sido cilindros que nos empujan a la hora de tocarlos. Esto hace que la difcultad aumente ya que tenemos que tener cuidado para que no nos tiren para fuera del mapa o nos acerquen a nuestros enemigos 
+Cilindros Empujadores
 
-(Gif cilindrs)
+Para aumentar la dificultad, hemos añadido cilindros que empujan al jugador al tocarlos. Esto obliga al jugador a ser más estratégico para evitar caer del mapa o ser arrastrado hacia enemigos.
 
-El método que permite reaizar esto es el siguiente:
+![cilindros](https://github.com/user-attachments/assets/0f6100ba-9b41-4686-8405-3c4dc8bbc805)
 
-### Tablas giratorias
+Tablas Giratorias
 
-La tabla giratoria nos permiten acceder a otra tabla donde tenemos los pick-up que deberemos recoger para ganar el nivel. Tener esta tabla nos permite añadir movimiento a nuestro mapa y diversión. 
+Hemos incluido plataformas giratorias que permiten acceder a nuevas áreas con pickups. Estas tablas añaden movimiento al mapa y hacen que el juego sea más dinámico y divertido.
 
-(gif tabla giratoria)
-
-El código que nos permite realizar esto es el siguiente
-(código)
-
-### Pasarelas falsas
-
-En mi juego también he añadido dos pasarelas, una de las cuales no tiene material físico es decir es tan solo dibujo. Eso hace con que el jugador pueda perder por el hecho de equivocarse de pasarela. 
-
-(gif pasarela)
-
-### Gestionar caídas
-
-Al ser un juego de Roll-A-Ball es muy fácil que la pelota caiga del lugar. Es por eso que he añadido una función en el propio código de Player Controller que nos permite que al caer la bola y encontrarse en el eje y a = - 50 nos vuelva a empezar el juego. Al hacer eso tenemos que tener cuidado ya que debemos comprobar que en nuestro mapa no tengamos una parte que pueda llegar al valor que nosotros hemos decidido para reiniciar el juego ya que tendríamos un problema. 
-
-(gif vuelta inicio)
+![tabalsgiratoriasd](https://github.com/user-attachments/assets/f05b7d97-307a-471b-aed5-5ca3cca8f552)
 
 
-### Enemigo que dispara
+Código de la Tabla Giratoria:
 
-Además de que el enemigo nos persiga y nos mate en el caso de que nos acorrale (no al tocar) también dispara proyectiles. El proyectil tiene como root el enemigo por eso los proyectiles irán en la dirección del movimiento del enemigo y por lo tanto contra el jugador 
+(Código correspondiente a la rotación de la tabla)
 
-(gif dhooting)
+Pasarelas Falsas
 
-### Vidas jugador
+Para añadir un elemento de sorpresa, hemos incorporado pasarelas falsas, es decir, caminos que solo son visibles pero no tienen colisión física. Esto hace que el jugador pueda caer al vacío si elige la ruta incorrecta.
 
-Por esto anterior las vidas del jugador disminuyen en el caso de que alguno de esos proyectiles lo alcance, por eso tenemos que gestionar la salud del jugador para que vaya disminuyendo a medida que le tocan los proyectiles. 
+![pasarelafalsa](https://github.com/user-attachments/assets/c8f10fe8-c927-4f2f-b268-0bc06d815c26)
 
-(gif vida)
+Gestión de Caídas
 
-Para este código hemos utilizado este método
+En un juego de tipo Roll-a-Ball, es común que el jugador caiga del escenario. Para solucionar esto, hemos añadido una función en el código del PlayerController que detecta si la bola ha caído por debajo de una altura determinada (ejemplo: y = -50). Si esto ocurre, el nivel se reinicia automáticamente.
 
-### Cambiar escenas (niveles)
+![gestioncaidas](https://github.com/user-attachments/assets/62394e81-b0ca-44fa-8f46-64c4051d461f)
 
-Cualquier juego que se precie tiene un número de niveles, es por eso que s importante cambiar entre ellos. Después de añadirles como open scenes en la configuración del FIle de UNity tenemos que crear el método para que cmabie de nivel cuando nosotros queremos y con la condición que deesemos.
+Enemigo con Proyectiles
 
-(gif cambioNIvel)
+Además de perseguir al jugador, los enemigos ahora pueden disparar proyectiles en su dirección. Estos proyectiles heredan la dirección del movimiento del enemigo, aumentando la dificultad del juego.
 
-Para usar eso hemos usado el LOadScene y este método
-
-### Final Enemy
-
-En el caso de llegar al nivel 3 tendremos el enemigo final, el enemigo final está estático y no se mueve, tiene una tag Enemy que es "El Mosca". Este enemigo expulsa como proyectiles un prefab que es el dibujo de un apple pencil y que es mucho más grande. 
-
-(gif finalEnemy)
-
-### FinalGame
-
-Para el final del juego es decir el nivel 3 nos desaparecen todoso los pick up y solo tenemos el UltimatePickUp que está al lado del final enemy y justo al lado de cuando expulsa los apple pencil projectile. Por eso el final del juego es complejo. 
-
-(gif UltimatePickUp)
+![enemigoshoot](https://github.com/user-attachments/assets/a9df1096-792f-4b15-9db2-98317d8c1cb8)
 
 
+Vidas del Jugador
 
+Para gestionar la dificultad, hemos añadido un sistema de vidas. Cada vez que el jugador es alcanzado por un proyectil, su barra de vida disminuye. Si la salud llega a cero, el nivel se reinicia o el jugador pierde la partida.
+
+![vidas](https://github.com/user-attachments/assets/518d7ae4-a5ba-4d71-bd3b-21b4cbc8361a)
+
+Código para la Gestión de Vida:
+
+
+(Código correspondiente a la disminución de vida del jugador)
+
+Cambio de Escenas (Niveles)
+
+Para hacer el juego más interesante, hemos implementado múltiples niveles. Una vez configuradas las escenas en Unity (File > Build Settings > Scenes in Build), podemos programar la transición entre niveles usando SceneManager.LoadScene().
+![pasarNIvelFinal](https://github.com/user-attachments/assets/846e8104-9075-44db-b74d-1f5b3b4a8c9d)
+
+Código para Cambiar de Nivel:
+
+using UnityEngine.SceneManagement;
+
+void LoadNextLevel()
+{
+    SceneManager.LoadScene(nextSceneName);
+}
+
+Enemigo Final
+
+En el nivel 3, nos enfrentamos al enemigo final, llamado El Mosca. Este enemigo es estático, pero dispara proyectiles mucho más grandes (representados como Apple Pencil en el juego). Derrotarlo es el último desafío antes de completar el juego.
+
+![elmosca](https://github.com/user-attachments/assets/e3627f45-b57f-4a87-9be0-32c9cab52361)
+
+
+Fin del Juego
+
+El nivel final está diseñado para ser el más desafiante. Todos los pickups desaparecen, excepto el Ultimate PickUp, que está situado cerca del enemigo final y rodeado de proyectiles. El jugador debe esquivar los ataques y alcanzar este último pickup para completar la partida.
+![GanarJuego](https://github.com/user-attachments/assets/04a5a161-65fc-4b3c-b7ca-8f5011fd859d)
+
+Con estas mejoras, nuestro juego Roll-a-Ball se convierte en una experiencia más dinámica, estratégica y entretenida para los jugadores.
