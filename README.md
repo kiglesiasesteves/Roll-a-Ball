@@ -6,6 +6,9 @@ En este proyecto analizaremos cómo añadir funcionalidades extra a nuestro jueg
 
 El PlayGround es uno de los elementos más importantes del juego, ya que define el entorno en el que el jugador se moverá e interactuará. Aunque pueda parecer que se trata solo de la creación de elementos 3D, en realidad es mucho más que eso. A continuación, exploraremos algunas de las mejoras que hemos implementado en el PlayGround para hacer el juego más dinámico y desafiante.
 
+![image](https://github.com/user-attachments/assets/3df51fcb-9546-4f1a-b7a7-2a5f79c0e363)
+
+
 ## Rampa con Boost
 
 Una forma de enriquecer la experiencia de juego es añadiendo potenciadores en el escenario, como ocurre en algunos títulos de Mario Bros. En este caso, hemos implementado una rampa que otorga un aumento de velocidad al jugador al subirla.
