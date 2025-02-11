@@ -11,4 +11,4 @@ El PlayGround es uno de los elementos más importantes del juego, es lo que va a
 Una cosa que podemos hacer con nuestro playground es añadir una especie de potenciadores para nuestro jugador en el propio playground (otra opción sería añadirlos en un pickup como pasa en juegos de MarioBros).
 Para eso hablaremos de la rampa que nos ofrece un aumento de velocidad cuando pasamos por ella. Veamos el ejemplo. 
 
-![ramapaBoost](https://github.com/user-attachments/assets/501d989d-dc55-438a-ab6b-8b89a7c14da5)
+![rampaBoost](https://github.com/user-attachments/assets/7572f463-b012-43b1-825f-af94c3bf9390)
