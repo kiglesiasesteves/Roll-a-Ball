@@ -77,5 +77,17 @@ Cualquier juego que se precie tiene un número de niveles, es por eso que s impo
 
 Para usar eso hemos usado el LOadScene y este método
 
+### Final Enemy
+
+En el caso de llegar al nivel 3 tendremos el enemigo final, el enemigo final está estático y no se mueve, tiene una tag Enemy que es "El Mosca". Este enemigo expulsa como proyectiles un prefab que es el dibujo de un apple pencil y que es mucho más grande. 
+
+(gif finalEnemy)
+
+### FinalGame
+
+Para el final del juego es decir el nivel 3 nos desaparecen todoso los pick up y solo tenemos el UltimatePickUp que está al lado del final enemy y justo al lado de cuando expulsa los apple pencil projectile. Por eso el final del juego es complejo. 
+
+(gif UltimatePickUp)
+
 
 
