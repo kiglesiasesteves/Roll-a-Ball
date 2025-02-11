@@ -17,7 +17,7 @@ Una forma de enriquecer la experiencia de juego es añadiendo potenciadores en e
 
 
 Código de la Rampa con Boost:
-
+´´´
 private void OnTriggerEnter(Collider other)
 {
     // Comprobar si el objeto que entra en el trigger es el jugador
@@ -27,6 +27,7 @@ private void OnTriggerEnter(Collider other)
         other.GetComponent<Rigidbody>().velocity += new Vector3(0, 0, speedBoost);
     }
 }
+´´
 
 ## Cilindros Empujadores
 
