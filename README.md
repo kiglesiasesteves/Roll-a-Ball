@@ -77,7 +77,9 @@ Código para la Gestión de Vida:
 (Código correspondiente a la disminución de vida del jugador)
 
 ## Estados 
-Para definir estados de ciertos elementos hemos usado State que nos permiet cambiar el estado 
+Para definir estados de ciertos elementos hemos usado State que nos permite cambiar el estado de por ejemplo el jugador
+
+![image](https://github.com/user-attachments/assets/92afaae9-28f4-41ec-84ce-4cd9aec15b48)
 
 
 ## Cambio de Escenas (Niveles)
