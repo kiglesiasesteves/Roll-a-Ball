@@ -229,6 +229,19 @@ Luego vamos modificansdo el estado del jugador a medida que es preciso en nuestr
 ![image](https://github.com/user-attachments/assets/cbe7daef-f4d3-45a6-9d28-c816532ebcde)
 ![image](https://github.com/user-attachments/assets/db59af53-2927-4dc5-bece-2a4a0ca4e199)
 
+## Estados con Animator 
+Primero definimos los estados en el Animator 
+
+![image](https://github.com/user-attachments/assets/f6436616-927a-40b0-9715-edec2e6cf4a3)
+
+Cuando tenemos los estados definidos podemos modificarlo como los estados en el código y en la parte que corresponda. 
+
+```
+animator.SetTrigger("HasWon");
+```
+
+
+
 
 ## Cambio de Escenas (Niveles)
 
