@@ -272,3 +272,21 @@ El nivel final está diseñado para ser el más desafiante. Todos los pickups de
 ![GanarJuego](https://github.com/user-attachments/assets/04a5a161-65fc-4b3c-b7ca-8f5011fd859d)
 
 Con estas mejoras, nuestro juego Roll-a-Ball se convierte en una experiencia más dinámica, estratégica y entretenida para los jugadores.
+
+## Juego Android
+
+Para poder utilizar este juego en el móvil hemos utilizado la herramienta propia de unity para codificar para Android. Después de eso colocamos un acelerometro para gestionar el movimiento de la pelota. 
+
+```
+    Vector3 dir = Vector3.zero;
+        dir.x = -Input.acceleration.y;
+        dir.z = Input.acceleration.x;
+        if (dir.sqrMagnitude > 1)
+            dir.Normalize();
+        
+        dir *= Time.deltaTime;
+        transform.Translate(dir * speed);
+```
+
+En la release tenemos la .apk
+
